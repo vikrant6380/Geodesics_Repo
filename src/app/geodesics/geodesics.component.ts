@@ -1,77 +1,137 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormArray, FormBuilder, FormGroup,FormControl } from '@angular/forms';
+import { DataServiceService } from '../data-service.service';
 @Component({
   selector: 'app-geodesics',
   templateUrl: './geodesics.component.html',
   styleUrls: ['./geodesics.component.scss']
 })
 export class GeodesicsComponent implements OnInit {
+maxRating:any
+questions=[]
+members=[]
+  skillsForm!: FormGroup;
+  constructor(private dataServiceService:DataServiceService,private fb:FormBuilder) {
 
-  constructor() { }
-multi:number[][] =
+    this.skillsForm = this.fb.group({
+      name: '',
+      skills: this.fb.array([]) ,
+    });
+   }
 
-[
-  [0,0.68,0.65,0,0.61,0],
-  [0.76,0,0.72,0.66,0.61,0],
-  [0.71,0.77,0,0,0.63,0.63],
-  [0.94,0.68,0,0,0.64,0],
-  [0.85,0.81,0.87,0.64,0,0.67],
-  [0,0,0.72,0,0.6,0]
-]
+   get skills() : FormArray {
+    return this.skillsForm.get("skills") as FormArray
+  }
+ 
+  newSkill(name: string): FormGroup {
+    return this.fb.group({
+      teamMemName: name,
+      exp: '',
+    })
+  }
+ 
+  // addSkills() {
+  //   debugger
+  //   this.skills.push(this.newSkill());
+  //   console.log(this.skills.controls[0].value.exp)
+  //   console.log( this.newSkill())
+   
+
+  // }
+ 
+  removeSkill(i:number) {
+    this.skills.removeAt(i);
+  }
+ 
+  onSubmit() {
+    debugger
+    let totalRating:number=this.questions.length
+    let maxMarks=this.maxRating*totalRating;
+    let datatoBackend: number[]=[];
+    
+    this.skillsForm.value.skills.map((_element: any)=>{
+      const weight :number =this.skillsForm.value.name==_element.teamMemName?0 : _element.exp/maxMarks;
+      let finalWeight = weight>=0.6 ? weight :0;
+      datatoBackend.push((finalWeight))
+     // console.log(weight)
+    })
+    // datatoBackend.map(_k=>{
+      console.log(totalRating,datatoBackend);
+let apiData={
+  name:this.skillsForm.value.name,
+  data:datatoBackend
+}
+
+this.dataServiceService.submitFeedback(apiData).subscribe((res:any)=>{
+  debugger
+  console.log("data submitted",res)
+  let modal =document.getElementById('myModal');
+  if(modal!=null){
+    modal.style.display = "block";
+  
+  }
+})
+    // })
+
+    
+  }
+  closeModal (){
+    let modal =document.getElementById('myModal');
+if(modal!=null){
+  modal.style.display = "none";
+
+}
+window.location.reload();
+}
+  apiData:any;
+  influentialIndex:any;
+
+ 
+  
+multi:number[][] =[];
+// multi:number[][] =
+
+// [
+//   [0,0.68,0.65,0,0.61,0],
+//   [0.76,0,0.72,0.66,0.61,0],
+//   [0.71,0.77,0,0,0.63,0.63],
+//   [0.94,0.68,0,0,0.64,0],
+//   [0.85,0.81,0.87,0.64,0,0.67],
+//   [0,0,0.72,0,0.6,0]
+// ]
 
 
   ngOnInit(): void {
-    var finRes=[]
-    
-    for(var m=0;m<this.multi.length;m++){
-      finRes.push(0)
-    }
-    
-    for (var i=0;i<this.multi.length;i++){ //i==1
-      for(var j=0;j<this.multi.length;j++){ //j==4
-        if(i!=j && this.multi[i][j]==0){
-          var den=0;
-          var sum=0;
-          //console.log(i+1,j+1,"value==>",this.multi[i][j],"den=>",den)
-
-          for(var k=0;k<this.multi.length;k++){ //for denominator
-            if(this.multi[k][j] !=0 && this.multi[i][k]!=0){
-              den=den+((this.multi[i][k] +this.multi[k][j])/2)
-              console.log("i->", i+1,"k->",k+1 ,"j->",j+1,"value==>","den=>",den,this.multi[i][k],this.multi[k][j])
-            }
-          }
-
-          for(var k=0;k<this.multi.length;k++){ //for sum
-            if(this.multi[k][j] !=0 && this.multi[i][k]!=0){
-              sum=0;
-            //  debugger
-              sum=this.multi[i][k]/den;
-              finRes[k]=finRes[k]+sum;
-             // den=den+((this.multi[k][j] +this.multi[i][k])/2)
-            //  for(var l=0;l<finRes.length;l++){
-            //   if(finRes[l].index ==k ){
-            //     finRes[l].sum= finRes[l].sum+sum;
-            //     console.log("index fin->", finRes[l].index,"sum fin",finRes[l].sum)
-            //   }
-            //   // else{
-            //   //   finRes.push({index:k,sum:sum})
-            //   // }
-            //  }
-              console.log( "sumation", sum,"den=>",den,"2nd numerator",this.multi[i][k],)
-            }
-          }
-
-        }
-      }
-    }
 
 
-    for(var l=0;l<finRes.length;l++){
-      console.log("final res==>",finRes[l],"index",l)
+  //Basics Details
 
-    }
+this.dataServiceService.getBasicData().subscribe((_res:any)=>{
+  console.log(_res['data'])
+  this.questions=_res.data.questions
+  this.members=_res.data.members
+  this.maxRating=_res.data.maxRating
+  this.members.map(_ele=>{
+      
+    this.skills.push(this.newSkill(_ele))
+  })
+})
 
-    console.log("most influential person",finRes.indexOf(Math.max(...finRes))+1);
+  //Basics Details ends
+
   }
 
+
+
+
+}
+
+export class country {
+  id: string;
+  name: string;
+ 
+  constructor(id: string, name: string) {
+    this.id = id;
+    this.name = name;
+  }
 }

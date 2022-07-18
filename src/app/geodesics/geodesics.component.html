@@ -1,1 +1,130 @@
-<p>geodesics works!</p>
+<!-- <p>geodesics works!</p> -->
+<!-- <div *ngFor ="let item of multi">
+<span *ngFor ="let i of item">
+{{i}} 
+</span>
+
+
+</div> -->
+<!-- <div>
+    Most Influential Person is V{{influentialIndex}}
+</div> -->
+
+<div>
+    <div  style="    text-align: center; " class="mt-3">
+        <h2>FINDING OUT MOST INFLUENCIAL PERSONALITY IN SOCIAL NETWORKING</h2>
+
+    </div>
+<div>
+    <!-- <div class="form-group row mt-3 mb-3" style="    text-align: center;"> 
+        
+        <div class="col-4 offset-4"><input type="text" class="form-control col-6" id="formGroupExampleInput" placeholder="Enter Your Name"></div>
+      </div> -->
+      <div style="text-align: center;">
+        <span style="font-weight: 600;">Note:</span><span>Please give rating between range 0-</span>
+        <span>{{maxRating}}  </span>
+        <span> for each question and write a total rating for that member in input box</span>
+      </div>
+</div>
+
+<div class="row box ml-5 mt-3" >
+<div class="col-5 offset-1">
+<h4>Questions</h4>
+<div *ngFor="let que of questions; let i=index" class="mb-1">
+     <span>{{i+1 }}) </span>{{que}}
+</div>
+
+</div>
+<div class="col-5 mt-5" >
+    <!-- <div class="form-group row mb-2" *ngFor="let mem of members">
+        <label for="formGroupExampleInput" class="col-4 offset-2">{{mem}}</label>
+        <div class="col-5"><input type="text" class="form-control col-6" id="formGroupExampleInput" placeholder="Enter Total Rating"></div>
+      </div> -->
+      <div class="container">
+        <!-- <br />
+        <h1 class="text-danger text-center">Buy Tickets</h1>
+        
+        <div class="row">
+          <div class="col-md-3">
+            <button class="btn btn-danger" (click)='addTicket()'>Add Ticket</button>
+          </div>
+        </div>
+      
+        <form [formGroup]='buyTicketForm' novalidate class="text-center border border-light p-5" (ngSubmit)='buyTickets()'>
+            <div formArrayName="tickets" *ngFor="let t of tickets.controls; let i = index">
+                <input formControlName='name' id="{{'name'+i}}" type="text" class="form-control mb-4" placeholder="Enter Name" />
+                <input formControlName='age' id="{{'age' + i}}" type="number" class="form-control mb-4"
+                placeholder="Enter Age " />
+              </div> 
+                   <button class="btn btn-danger">Submit</button>
+        </form> -->
+
+        <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
+ 
+          
+              <!-- <input type="text" id="name" name="name" formControlName="name"> -->
+              <div class="alignCenter"> <label for="name">Select Your Name </label></div>
+              <select  formControlName="name" class="dropbtn ">
+                <option *ngFor="let memberName of members" [ngValue]="memberName">
+                 {{ memberName }}
+                </option>
+              </select> 
+            
+           
+           
+            <!-- Skills: -->
+            <div formArrayName="skills">
+              <div *ngFor="let skill of skills.controls; let i=index">
+                <div [formGroupName]="i" class="row mb-2">
+                  <div class="col-3 ">   <label>{{skill.value.teamMemName}}</label></div>
+                  <div class="col-9">
+                    <input class="form-control" type="number" formControlName="exp" [readonly]="skillsForm.value.name==skill.value.teamMemName ? true : false" >
+
+                  </div>
+               
+                  <!-- {{skillsForm.value.name==skill.value.teamMemName}} -->
+                  <!-- <button (click)="removeSkill(i)">Remove</button> -->
+                </div>
+              </div>
+            </div>
+           
+           <div class="alignCenter mt-3">              <button type="submit" >Submit</button>           </div>
+          
+           
+          </form>
+           
+           
+          <!-- <p>
+            <button type="button" (click)="addSkills()">Add</button>
+          </p> -->
+           
+          <!-- {{this.skillsForm.value | json}} -->
+      
+      </div>
+
+   
+</div>
+</div>
+
+</div>
+<div class="mt-3"></div>
+  <div id="myModal" class="modal" style="display: none;">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Modal Header</h2>
+      </div> -->
+      <div class="modal-body alignCenter mt-4">
+        <p>Data SuccessFully Submitted</p>
+      </div>
+      <div class="alignCenter mt-3">
+        <button type="submit" class="modalButton" (click)="closeModal()">Close</button>
+      </div>
+      <!-- <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div> -->
+    </div>
+  
+  </div>

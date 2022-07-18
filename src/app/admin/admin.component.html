@@ -1,0 +1,41 @@
+
+
+<header class="intro-header">
+    <section class="view intro-video">
+    <div class="mask rgba-gradient h-100">
+        <div class="full-bg-img ">
+            <div class="center_align">
+<div *ngIf="!howInfluentialPerson">
+    <p>Click here to find out most influential Person</p>
+    
+    <!-- <button (click)="findMostInfluentialPerson()">FIND</button> -->
+    <button  (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Read More</span></button>
+</div>
+
+<div *ngIf="howInfluentialPerson" class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://img.freepik.com/premium-vector/business-man-cartoon-character-smart-clothes-office-style_51635-5680.jpg?w=2000" alt="Avatar" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card-back ">
+        <div class="mt-5">
+          <h4>Influential Person is </h4>
+          <h1>{{influentialPersonName}}</h1> 
+          <p>Architect & Engineer</p> 
+          <p>Experience : 4 Years</p>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+             
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+</header>
+
+
+
