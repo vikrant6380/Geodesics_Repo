@@ -19,5 +19,19 @@ export class NavbarComponent implements OnInit {
   toggleSidebar() {
     this.appService.toggleSidebar();
   }
+  closeModal (){
+    let modal =document.getElementById('myModalLogin');
+if(modal!=null){
+  modal.style.display = "none";
 
+}
+//window.location.reload();
+}
+login(){
+  let modal =document.getElementById('myModalLogin');
+  if(modal!=null){
+    modal.style.display = "block";
+  
+  }
+}
 }

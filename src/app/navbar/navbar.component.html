@@ -66,6 +66,12 @@
     <ul class="navbar-nav ">
       <li class="nav-item">
         <a class="btn nav-link">
+          <button class="login-btn" type="button" (click)="login()">Login</button>
+          <span class="link-text">Login</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="btn nav-link">
           <i class="far fa-bell"></i>
           <span class="link-text">Alerts</span>
           <!-- <span class="badge badge-pill ba dge-danger">3</span> -->
@@ -92,9 +98,53 @@
           <span class="link-text">Setting</span>
         </a>
       </li>
+     
     </ul>
   </div>
 
 
 
 </nav>
+<!-- <div id="myModalLogin" class="modalLogin" style="display: none;"> -->
+
+  <!-- Modal content -->
+  <!-- <div class="modal-content"> -->
+    <!-- <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+    </div> -->
+    
+    <!-- <div class="modal-body alignCenter mt-4">
+      <app-login></app-login>
+    </div>
+    <div class="alignCenter mt-3">
+      <button type="submit" class="modalButton" (click)="closeModal()">Close</button>
+    </div> -->
+    <!-- <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div> -->
+  <!-- </div> -->
+
+<!-- </div> -->
+
+
+<!-- The Modal -->
+<div id="myModalLogin" class="modal modalLogin">
+ <!-- <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+    </div> -->
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div style="align-self: center;" >
+      <h3>Login</h3>
+          </div>
+    <div class="modal-body alignCenter mt-4" style=" margin-top: 0% !important;">
+      <app-login></app-login>
+    </div>
+    <div class="alignCenter mt-3">
+      <button type="submit" class="modalButton" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+
+</div>

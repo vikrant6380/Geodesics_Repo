@@ -70,6 +70,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { InfluentialGraphComponent } from './influential-graph/influential-graph.component';
 import { IndividualsInfluentialityComponent } from './individuals-influentiality/individuals-influentiality.component';
 import { InfluentialPersonNameComponent } from './influential-person-name/influential-person-name.component';
+import { AdminConfigScreenComponent } from './admin-config-screen/admin-config-screen.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { InfluentialPersonNameComponent } from './influential-person-name/influe
     SideBarComponent,
     InfluentialGraphComponent,
     IndividualsInfluentialityComponent,
-    InfluentialPersonNameComponent
+    InfluentialPersonNameComponent,
+    AdminConfigScreenComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

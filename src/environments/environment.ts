@@ -4,20 +4,29 @@
 
 export const environment = {
   production: false,
-    firebaseConfig:  {
-      apiKey: "AIzaSyAu6Th887rmrYIVtYerv1e2d47R86Zs7l8",
-      authDomain: "geodesics.firebaseapp.com",
-      projectId: "geodesics",
-      storageBucket: "geodesics.appspot.com",
-      messagingSenderId: "1029061221351",
-      appId: "1:1029061221351:web:0f0086b53ac1c8ddb9fb42",
-      measurementId: "G-8373FF8S2G"
+    // firebaseConfig:  {
+    //   apiKey: "AIzaSyAu6Th887rmrYIVtYerv1e2d47R86Zs7l8",
+    //   authDomain: "geodesics.firebaseapp.com",
+    //   projectId: "geodesics",
+    //   storageBucket: "geodesics.appspot.com",
+    //   messagingSenderId: "1029061221351",
+    //   appId: "1:1029061221351:web:0f0086b53ac1c8ddb9fb42",
+    //   measurementId: "G-8373FF8S2G"
+    // },
+    firebaseConfig : {
+      apiKey: "AIzaSyAjFf5Dorubi324LqieuU7ryA51A80sO6g",
+      authDomain: "doctor-crm-app.firebaseapp.com",
+      databaseURL: "https://doctor-crm-app.firebaseio.com",
+      projectId: "doctor-crm-app",
+      storageBucket: "doctor-crm-app.appspot.com",
+      messagingSenderId: "584847979851",
+      appId: "1:584847979851:web:3ae3cc2d07756f57d224ce"
     },
     
-    //  API_URL:"http://localhost:3000"
+      API_URL:"http://localhost:3000"
     
     // API_URL:"https://mysterious-beyond-43809.herokuapp.com"
-    API_URL:"https://infuentiality-calculator.onrender.com"
+   // API_URL:"https://infuentiality-calculator.onrender.com"
 
 };
 
