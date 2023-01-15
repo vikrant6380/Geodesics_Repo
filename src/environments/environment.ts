@@ -14,9 +14,10 @@ export const environment = {
       measurementId: "G-8373FF8S2G"
     },
     
-     API_URL:"http://localhost:3000"
+    //  API_URL:"http://localhost:3000"
     
-    //API_URL:"https://mysterious-beyond-43809.herokuapp.com"
+    // API_URL:"https://mysterious-beyond-43809.herokuapp.com"
+    API_URL:"https://infuentiality-calculator.onrender.com"
 
 };
 

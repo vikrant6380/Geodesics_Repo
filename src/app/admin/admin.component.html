@@ -2,20 +2,44 @@
 
 <header class="intro-header">
     <section class="view intro-video">
-    <div class="mask rgba-gradient h-100">
-        <div class="full-bg-img ">
             <div class="center_align">
-<div *ngIf="!howInfluentialPerson">
+              <div class="row mb-5">
+                <div class="card bg-dark text-white col-md-3 col-sm-3 col-xs-10 p-0" style="    height: 257px;">
+                  <img style="height:100% ;" src="../../assets/lead1.png" class="card-img" alt="...">
+                 
+                </div>
+
+
+<div class=" col-6 col-xs-10 col-sm-6 col-md-6">
+  <div class="card">
+    <h5 class="card-header" style="
+    background-color: lightseagreen;
+">Leader</h5>
+    <div class="card-body">
+      <h5 class="card-title">Most Influential Person</h5>
+      <p class="card-text">A leader is someone who <span style="font-weight: bold;">inspires passion and motivation</span> in followers. A leader is someone with a vision and the path to realizing it. A leader is someone who ensures their team has support and tools to achieve their goals</p>
+      <button  (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Hover here</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="card bg-dark text-white col-sm-3 p-0 col-xs-10 col-md-3" style="    height: 257px;">
+  <img style="height:100% ;" src="../../assets/lead2.png" class="card-img" alt="...">
+ 
+</div>
+              </div>
+<!-- <div *ngIf="!howInfluentialPerson">
     <p>Click here to find out most influential Person</p>
     
-    <!-- <button (click)="findMostInfluentialPerson()">FIND</button> -->
-    <button  (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Read More</span></button>
-</div>
+    <button  (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Hover here</span></button>
+</div> -->
+<div class="row">
 
 <div *ngIf="howInfluentialPerson" class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="https://img.freepik.com/premium-vector/business-man-cartoon-character-smart-clothes-office-style_51635-5680.jpg?w=2000" alt="Avatar" style="width:300px;height:300px;">
+        <img src="../../assets/influential.png" alt="Avatar" style="width: 100%;
+        height: 100%;">
       </div>
       <div class="flip-card-back ">
         <div class="mt-5">
@@ -28,11 +52,9 @@
       </div>
     </div>
   </div>
-             
+</div>    
             </div>
             
-        </div>
-    </div>
 </section>
 
 </header>
