@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -72,6 +72,8 @@ import { IndividualsInfluentialityComponent } from './individuals-influentiality
 import { InfluentialPersonNameComponent } from './influential-person-name/influential-person-name.component';
 import { AdminConfigScreenComponent } from './admin-config-screen/admin-config-screen.component';
 import { LoginComponent } from './login/login.component';
+import { ConfigScreenComponent } from './config-screen/config-screen.component';
+import { CustomCardComponent } from './common-component/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { LoginComponent } from './login/login.component';
     InfluentialPersonNameComponent,
     AdminConfigScreenComponent,
     LoginComponent,
+    ConfigScreenComponent,
+    CustomCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -156,6 +160,10 @@ import { LoginComponent } from './login/login.component';
 
   ],
   providers: [TestTwoComponent,DataServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }

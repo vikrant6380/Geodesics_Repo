@@ -13,6 +13,8 @@ export class DataServiceService {
    }
 
   subject$=new Subject<Boolean>();
+  userLoggedInDetails$=new Subject<{}>();
+  isLoggedIn$=new Subject<Boolean>();
 
   setSub(flag: boolean | Boolean | undefined){
     console.log("inside set subject service")
@@ -44,4 +46,24 @@ export class DataServiceService {
     return this.http.post(apiURL,data);
   }
 
+
+  setUserLoggedInDetails(data:any){
+    console.log("inside set setUserLoggedInDetails service")
+    this.userLoggedInDetails$.next(data);
+    this.subject$.complete();
+  }
+  getUserLoggedInDetails(){
+    console.log("inside get getUserLoggedInDetails service")
+    return this.userLoggedInDetails$.asObservable();
+  }
+
+  setisLoggedIn(data:any){
+    console.log("inside set setUserLoggedInDetails service")
+    this.isLoggedIn$.next(data);
+    this.subject$.complete();
+  }
+  getisLoggedIn(){
+    console.log("inside get getUserLoggedInDetails service",this.isLoggedIn$.asObservable())
+    return this.isLoggedIn$.asObservable();
+  }
 }

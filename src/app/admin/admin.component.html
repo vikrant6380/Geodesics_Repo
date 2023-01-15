@@ -16,9 +16,10 @@
     background-color: lightseagreen;
 ">Leader</h5>
     <div class="card-body">
+  
       <h5 class="card-title">Most Influential Person</h5>
       <p class="card-text">A leader is someone who <span style="font-weight: bold;">inspires passion and motivation</span> in followers. A leader is someone with a vision and the path to realizing it. A leader is someone who ensures their team has support and tools to achieve their goals</p>
-      <button  (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Hover here</span></button>
+      <button ng-disabled="isLoggedIn"   (click)="findMostInfluentialPerson()"  class="custom-btn btn-12"><span>Click!</span><span>Hover here</span></button>
     </div>
   </div>
 </div>

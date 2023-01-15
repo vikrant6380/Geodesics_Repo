@@ -1,0 +1,20 @@
+.myCssAnimation {
+    padding: 3rem;
+    text-align: center;
+   // color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+
+    background: linear-gradient(270deg, #e922e9, #f75d21, #5543f7, #00dbff, #92db32);
+    background-size: 600% 600%;
+    animation: borderAnimation 4s ease infinite;
+
+
+    height: 81%;
+}
+ 
+@keyframes borderAnimation {
+  0% { background-position: 0 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}

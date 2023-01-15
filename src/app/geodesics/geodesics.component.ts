@@ -10,6 +10,7 @@ export class GeodesicsComponent implements OnInit {
 maxRating:any
 questions=[]
 members=[]
+isLoggedIn: any
   skillsForm!: FormGroup;
   constructor(private dataServiceService:DataServiceService,private fb:FormBuilder) {
 
@@ -103,7 +104,9 @@ multi:number[][] =[];
 
   ngOnInit(): void {
 
-
+    this.dataServiceService.getisLoggedIn().subscribe((res: any)=>{
+      this.isLoggedIn=res
+    })
   //Basics Details
 
 this.dataServiceService.getBasicData().subscribe((_res:any)=>{

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { ConfigScreenComponent } from './config-screen/config-screen.component';
 import { GeodesicsSurveyComponent } from './geodesics-survey/geodesics-survey.component';
 import { GeodesicsComponent } from './geodesics/geodesics.component';
 import { GraphAnalysisComponent } from './graph-analysis/graph-analysis.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
 },
 {
   path:'individalAnalysis',component:IndividualsInfluentialityComponent
+},
+{
+  path:'adminConfig',component:ConfigScreenComponent
+  
 }
 
 ];

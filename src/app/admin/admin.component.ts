@@ -13,12 +13,16 @@ export class AdminComponent implements OnInit {
 multi:number[][] =[];
   howInfluentialPerson!: boolean;
   influentialPersonName!: string;
+  isLoggedIn: any;
   constructor(private dataServiceService:DataServiceService) { }
 
   ngOnInit(): void {
 this.howInfluentialPerson=false;
     this.dataServiceService.getBasicData().subscribe((_res:any)=>{
       this.members=_res.data.members
+    })
+    this.dataServiceService.getisLoggedIn().subscribe((res: any)=>{
+      this.isLoggedIn=res
     })
   }
   findMostInfluentialPerson(){
@@ -114,4 +118,6 @@ this.influentialIndex=finRes.indexOf(Math.max(...finRes))
 
 //Main Calculation Ends
   }
+
+
 }

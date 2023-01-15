@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-graph-analysis',
@@ -16,11 +17,16 @@ export class GraphAnalysisComponent implements OnInit {
   selectedOption:any
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
+  isLoggedIn: any
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  constructor() { }
+  constructor(private dataService:DataServiceService) {
+this.dataService.getisLoggedIn().subscribe(res=>{
+  this.isLoggedIn=res;
+})
+
+   }
 
   ngOnInit(): void {
     this.members=['Vikrant','Rajat','Sachin','Swapnil','Sahil','Ashish']
